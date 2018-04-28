@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using MathLibrary;
+using ConsoleClient.ServiceReference1;
 
 namespace ConsoleClient
 {
@@ -11,11 +11,9 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
-            /*
-            MathsOperationsClient client = MathsOperationsClient();
+            MathsOperationsClient client = new MathsOperationsClient();
             Console.WriteLine(client.Add(100, 11));
             Console.WriteLine(client.Mult(47, 10));
-            */
             Console.ReadLine();
         }
     }

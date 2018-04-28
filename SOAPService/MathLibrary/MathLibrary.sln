@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{048E6049-0A73-43BA-8255-48DFB7F8F6B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6BC23407-1AC7-48A4-B9AD-5A6BF465AA34} = {6BC23407-1AC7-48A4-B9AD-5A6BF465AA34}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibrary", "MathLibrary\MathLibrary.csproj", "{6BC23407-1AC7-48A4-B9AD-5A6BF465AA34}"
 EndProject
