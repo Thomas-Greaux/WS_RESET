@@ -55,12 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Service References\ServiceReference1\IntermediaryWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\service.wsdl" />
     <None Include="Service References\ServiceReference1\service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\service1.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\SOAPConsoleClient.ServiceReference1.City.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

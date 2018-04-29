@@ -9,17 +9,64 @@
 //------------------------------------------------------------------------------
 
 namespace SOAPConsoleClient.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="City", Namespace="http://schemas.datacontract.org/2004/07/IntermediaryWS")]
+    [System.SerializableAttribute()]
+    public partial class City : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IIWS")]
     public interface IIWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetCitiesName", ReplyAction="http://tempuri.org/IIWS/GetCitiesNameResponse")]
-        string GetCitiesName();
+        SOAPConsoleClient.ServiceReference1.City[] GetCitiesName();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetCitiesName", ReplyAction="http://tempuri.org/IIWS/GetCitiesNameResponse")]
-        System.Threading.Tasks.Task<string> GetCitiesNameAsync();
+        System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.City[]> GetCitiesNameAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,11 +96,11 @@ namespace SOAPConsoleClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string GetCitiesName() {
+        public SOAPConsoleClient.ServiceReference1.City[] GetCitiesName() {
             return base.Channel.GetCitiesName();
         }
         
-        public System.Threading.Tasks.Task<string> GetCitiesNameAsync() {
+        public System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.City[]> GetCitiesNameAsync() {
             return base.Channel.GetCitiesNameAsync();
         }
     }

@@ -63,14 +63,11 @@ namespace SOAPConsoleClient
 
         static void execute_listCities()
         {
-            /*
-            List<City> cities = client.GetCities();
+            List<City> cities = new List<City>(client.GetCitiesName());
             foreach (City city in cities)
             {
                 Console.WriteLine(city.Name);
             }
-            */
-            Console.WriteLine(client.GetCitiesName());
         }
 
         static void execute_listStations(string city)
