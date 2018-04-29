@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SOAPConsoleClient.ServiceReference1;
 
 namespace SOAPConsoleClient
 {
@@ -15,6 +16,7 @@ namespace SOAPConsoleClient
         const string help = "help";
         const string prompt = "/> ";
 
+        static Service1Client client = new Service1Client();
         //static VelibLabServices client = new VelibLabServices();
 
         static void Main(string[] args)
@@ -69,7 +71,7 @@ namespace SOAPConsoleClient
                 Console.WriteLine(city.Name);
             }
             */
-            not_implemented();
+            Console.WriteLine(client.GetCitiesName());
         }
 
         static void execute_listStations(string city)
