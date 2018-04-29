@@ -13,6 +13,12 @@ namespace IntermediaryWS
     {
         [OperationContract]
         List<City> GetCitiesName();
+
+        [OperationContract]
+        List<Station> GetStations(string city);
+
+        [OperationContract]
+        Station GetStation(string city, string station_name);
     }
 
     // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
@@ -20,13 +26,21 @@ namespace IntermediaryWS
     [DataContract]
     public class Station
     {
-        string name = "Station name";
+        string name = "Station_Name";
+        int available_bikes = -1;
 
         [DataMember]
         public string Name
         {
             get { return name; }
             set { name = value; }
+        }
+
+        [DataMember]
+        public int Available_bikes
+        {
+            get { return available_bikes; }
+            set { available_bikes = value; }
         }
     }
 

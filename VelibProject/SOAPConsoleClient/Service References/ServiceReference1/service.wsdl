@@ -13,16 +13,54 @@
   <wsdl:message name="IIWS_GetCitiesName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCitiesNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IIWS_GetStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStations" />
+  </wsdl:message>
+  <wsdl:message name="IIWS_GetStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIWS_GetStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStation" />
+  </wsdl:message>
+  <wsdl:message name="IIWS_GetStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IIWS">
     <wsdl:operation name="GetCitiesName">
       <wsdl:input wsaw:Action="http://tempuri.org/IIWS/GetCitiesName" message="tns:IIWS_GetCitiesName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IIWS/GetCitiesNameResponse" message="tns:IIWS_GetCitiesName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIWS/GetStations" message="tns:IIWS_GetStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIWS/GetStationsResponse" message="tns:IIWS_GetStations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIWS/GetStation" message="tns:IIWS_GetStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIWS/GetStationResponse" message="tns:IIWS_GetStation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IIWS" type="tns:IIWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetCitiesName">
       <soap:operation soapAction="http://tempuri.org/IIWS/GetCitiesName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStations">
+      <soap:operation soapAction="http://tempuri.org/IIWS/GetStations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStation">
+      <soap:operation soapAction="http://tempuri.org/IIWS/GetStation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

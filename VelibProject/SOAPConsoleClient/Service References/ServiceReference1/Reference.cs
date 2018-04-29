@@ -58,6 +58,67 @@ namespace SOAPConsoleClient.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Station", Namespace="http://schemas.datacontract.org/2004/07/IntermediaryWS")]
+    [System.SerializableAttribute()]
+    public partial class Station : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Available_bikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Available_bikes {
+            get {
+                return this.Available_bikesField;
+            }
+            set {
+                if ((this.Available_bikesField.Equals(value) != true)) {
+                    this.Available_bikesField = value;
+                    this.RaisePropertyChanged("Available_bikes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IIWS")]
     public interface IIWS {
@@ -67,6 +128,18 @@ namespace SOAPConsoleClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetCitiesName", ReplyAction="http://tempuri.org/IIWS/GetCitiesNameResponse")]
         System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.City[]> GetCitiesNameAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStations", ReplyAction="http://tempuri.org/IIWS/GetStationsResponse")]
+        SOAPConsoleClient.ServiceReference1.Station[] GetStations(string city);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStations", ReplyAction="http://tempuri.org/IIWS/GetStationsResponse")]
+        System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station[]> GetStationsAsync(string city);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStation", ReplyAction="http://tempuri.org/IIWS/GetStationResponse")]
+        SOAPConsoleClient.ServiceReference1.Station GetStation(string city, string station_name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStation", ReplyAction="http://tempuri.org/IIWS/GetStationResponse")]
+        System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station> GetStationAsync(string city, string station_name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -102,6 +175,22 @@ namespace SOAPConsoleClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.City[]> GetCitiesNameAsync() {
             return base.Channel.GetCitiesNameAsync();
+        }
+        
+        public SOAPConsoleClient.ServiceReference1.Station[] GetStations(string city) {
+            return base.Channel.GetStations(city);
+        }
+        
+        public System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station[]> GetStationsAsync(string city) {
+            return base.Channel.GetStationsAsync(city);
+        }
+        
+        public SOAPConsoleClient.ServiceReference1.Station GetStation(string city, string station_name) {
+            return base.Channel.GetStation(city, station_name);
+        }
+        
+        public System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station> GetStationAsync(string city, string station_name) {
+            return base.Channel.GetStationAsync(city, station_name);
         }
     }
 }

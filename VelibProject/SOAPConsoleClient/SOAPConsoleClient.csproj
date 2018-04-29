@@ -68,6 +68,9 @@
     <None Include="Service References\ServiceReference1\SOAPConsoleClient.ServiceReference1.City.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\SOAPConsoleClient.ServiceReference1.Station.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

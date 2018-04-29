@@ -72,8 +72,7 @@ namespace SOAPConsoleClient
 
         static void execute_listStations(string city)
         {
-            /*
-            List<Station> stations = client.GetStations(city);
+            List<Station> stations = new List<Station>(client.GetStations(city));
             if (stations == null)
             {
                 return;
@@ -82,16 +81,12 @@ namespace SOAPConsoleClient
             {
                 Console.WriteLine(station.Name);
             }
-            */
-            not_implemented();
         }
 
         static void execute_bikesAt(string city, string station_name)
         {
-            /*
             Station station = client.GetStation(city, station_name);
-            Console.WriteLine("There are " + station.Available_bikes + " available bikes in that station");
-            */
+            Console.WriteLine("There are " + station.Available_bikes + " available bikes at \"" + station.Name + "\"");
         }
 
         static void execute_help()

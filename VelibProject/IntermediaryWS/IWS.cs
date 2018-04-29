@@ -23,6 +23,26 @@ namespace IntermediaryWS
             return JsonConvert.DeserializeObject<List<City>>(result);
         }
 
+        public List<Station> GetStations(string city)
+        {
+            url = "https://api.jcdecaux.com/vls/v1/stations?contract=" + city + "&apiKey=" + apiKey;
+            string result = MyWebRequest();
+            return JsonConvert.DeserializeObject<List<Station>>(result);
+        }
+
+        public Station GetStation(string city, string station_name)
+        {
+            List<Station> stations = GetStations(city);
+            foreach (Station station in stations)
+            {
+                if (station.Name.ToUpper().Contains(station_name.ToUpper()))
+                {
+                    return station;
+                }
+            }
+            return new Station();
+        }
+
         static string MyWebRequest()
         {
             try
