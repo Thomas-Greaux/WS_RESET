@@ -12,40 +12,40 @@ namespace SOAPConsoleClient.ServiceReference1 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
-    public interface IService1 {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IIWS")]
+    public interface IIWS {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCitiesName", ReplyAction="http://tempuri.org/IService1/GetCitiesNameResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetCitiesName", ReplyAction="http://tempuri.org/IIWS/GetCitiesNameResponse")]
         string GetCitiesName();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCitiesName", ReplyAction="http://tempuri.org/IService1/GetCitiesNameResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetCitiesName", ReplyAction="http://tempuri.org/IIWS/GetCitiesNameResponse")]
         System.Threading.Tasks.Task<string> GetCitiesNameAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : SOAPConsoleClient.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
+    public interface IIWSChannel : SOAPConsoleClient.ServiceReference1.IIWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<SOAPConsoleClient.ServiceReference1.IService1>, SOAPConsoleClient.ServiceReference1.IService1 {
+    public partial class IWSClient : System.ServiceModel.ClientBase<SOAPConsoleClient.ServiceReference1.IIWS>, SOAPConsoleClient.ServiceReference1.IIWS {
         
-        public Service1Client() {
+        public IWSClient() {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public IWSClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public IWSClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public IWSClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public IWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

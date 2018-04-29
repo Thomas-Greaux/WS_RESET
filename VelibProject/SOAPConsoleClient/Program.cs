@@ -16,8 +16,7 @@ namespace SOAPConsoleClient
         const string help = "help";
         const string prompt = "/> ";
 
-        static Service1Client client = new Service1Client();
-        //static VelibLabServices client = new VelibLabServices();
+        static IWSClient client = new IWSClient();
 
         static void Main(string[] args)
         {
