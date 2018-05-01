@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace EventsLib
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class CalcService : ICalcService
     {
         static Action<int, double, double, double> m_Event1 = delegate { };
