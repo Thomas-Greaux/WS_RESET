@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IIWS.cs" />
+    <Compile Include="IIWSEvents.cs" />
+    <Compile Include="IIWSForEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IWS.cs" />
   </ItemGroup>
