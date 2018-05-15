@@ -11,12 +11,10 @@ using System.IO;
 namespace IntermediaryWS
 {
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" à la fois dans le code et le fichier de configuration.
-    public class IWS : IIWS, IIWSForEvents
+    public class IWS : IIWS
     {
         const string apiKey = "7efd1067c82b1c9593faa098b1f7f5ea02cd272e";
         static string url;
-
-        static Action<string, string, Station> m_EventStationInfo = delegate { };
 
         public List<City> GetCitiesName()
         {
@@ -69,18 +67,6 @@ namespace IntermediaryWS
                 Console.WriteLine("Error:  " + ex.Message);
                 return "";
             }
-        }
-
-        public void SubscribeStationInfo()
-        {
-            IIWSEvents subscriber = OperationContext.Current.GetCallbackChannel<IIWSEvents>();
-            m_EventStationInfo += subscriber.StationInfo;
-        }
-
-        public void GetStationForEvent(string city, string station_name)
-        {
-            Station res = GetStation(city, station_name);
-            m_EventStationInfo(city, station_name, res);
         }
     }
 }

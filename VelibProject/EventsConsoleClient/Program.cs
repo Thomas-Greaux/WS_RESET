@@ -15,7 +15,7 @@ namespace EventsConsoleClient
 
             IWSServiceCallbackSink objsink = new IWSServiceCallbackSink();
             InstanceContext iCntxt = new InstanceContext(objsink);
-            IWSReference.IWSClient objClient = new IWSReference.IWSClient(iCntxt);
+            IWSForEventsReference.IWSForEventsClient objClient = new IWSForEventsReference.IWSForEventsClient(iCntxt);
 
             objClient.SubscribeStationInfo();
 

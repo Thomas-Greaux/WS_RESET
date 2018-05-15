@@ -48,7 +48,7 @@
     <Compile Include="IWSServiceCallbackSink.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\IWSReference\Reference.cs">
+    <Compile Include="Service References\IWSForEventsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -56,37 +56,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\IWSReference\EventsConsoleClient.IWSReference.City.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\IWSReference\EventsConsoleClient.IWSReference.Station.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\IWSReference\IntermediaryWS.xsd">
+    <None Include="Service References\IWSForEventsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IWSReference\service.wsdl" />
-    <None Include="Service References\IWSReference\service.xsd">
+    <None Include="Service References\IWSForEventsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\IWSReference\service1.xsd">
+    <None Include="Service References\IWSForEventsReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\IWSForEventsReference\IWSForEvents.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\IWSReference\" />
+    <WCFMetadataStorage Include="Service References\IWSForEventsReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\IWSReference\configuration91.svcinfo" />
+    <None Include="Service References\IWSForEventsReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\IWSReference\configuration.svcinfo" />
+    <None Include="Service References\IWSForEventsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\IWSReference\Reference.svcmap">
+    <None Include="Service References\IWSForEventsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IWSForEventsReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
