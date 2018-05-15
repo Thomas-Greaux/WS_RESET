@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SOAPConsoleClient.ServiceReference1 {
+namespace SOAPConsoleClient.IWSReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -120,35 +120,35 @@ namespace SOAPConsoleClient.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IIWS")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IWSReference.IIWS")]
     public interface IIWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetCitiesName", ReplyAction="http://tempuri.org/IIWS/GetCitiesNameResponse")]
-        SOAPConsoleClient.ServiceReference1.City[] GetCitiesName();
+        SOAPConsoleClient.IWSReference.City[] GetCitiesName();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetCitiesName", ReplyAction="http://tempuri.org/IIWS/GetCitiesNameResponse")]
-        System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.City[]> GetCitiesNameAsync();
+        System.Threading.Tasks.Task<SOAPConsoleClient.IWSReference.City[]> GetCitiesNameAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStations", ReplyAction="http://tempuri.org/IIWS/GetStationsResponse")]
-        SOAPConsoleClient.ServiceReference1.Station[] GetStations(string city);
+        SOAPConsoleClient.IWSReference.Station[] GetStations(string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStations", ReplyAction="http://tempuri.org/IIWS/GetStationsResponse")]
-        System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station[]> GetStationsAsync(string city);
+        System.Threading.Tasks.Task<SOAPConsoleClient.IWSReference.Station[]> GetStationsAsync(string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStation", ReplyAction="http://tempuri.org/IIWS/GetStationResponse")]
-        SOAPConsoleClient.ServiceReference1.Station GetStation(string city, string station_name);
+        SOAPConsoleClient.IWSReference.Station GetStation(string city, string station_name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIWS/GetStation", ReplyAction="http://tempuri.org/IIWS/GetStationResponse")]
-        System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station> GetStationAsync(string city, string station_name);
+        System.Threading.Tasks.Task<SOAPConsoleClient.IWSReference.Station> GetStationAsync(string city, string station_name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IIWSChannel : SOAPConsoleClient.ServiceReference1.IIWS, System.ServiceModel.IClientChannel {
+    public interface IIWSChannel : SOAPConsoleClient.IWSReference.IIWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class IWSClient : System.ServiceModel.ClientBase<SOAPConsoleClient.ServiceReference1.IIWS>, SOAPConsoleClient.ServiceReference1.IIWS {
+    public partial class IWSClient : System.ServiceModel.ClientBase<SOAPConsoleClient.IWSReference.IIWS>, SOAPConsoleClient.IWSReference.IIWS {
         
         public IWSClient() {
         }
@@ -169,27 +169,27 @@ namespace SOAPConsoleClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public SOAPConsoleClient.ServiceReference1.City[] GetCitiesName() {
+        public SOAPConsoleClient.IWSReference.City[] GetCitiesName() {
             return base.Channel.GetCitiesName();
         }
         
-        public System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.City[]> GetCitiesNameAsync() {
+        public System.Threading.Tasks.Task<SOAPConsoleClient.IWSReference.City[]> GetCitiesNameAsync() {
             return base.Channel.GetCitiesNameAsync();
         }
         
-        public SOAPConsoleClient.ServiceReference1.Station[] GetStations(string city) {
+        public SOAPConsoleClient.IWSReference.Station[] GetStations(string city) {
             return base.Channel.GetStations(city);
         }
         
-        public System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station[]> GetStationsAsync(string city) {
+        public System.Threading.Tasks.Task<SOAPConsoleClient.IWSReference.Station[]> GetStationsAsync(string city) {
             return base.Channel.GetStationsAsync(city);
         }
         
-        public SOAPConsoleClient.ServiceReference1.Station GetStation(string city, string station_name) {
+        public SOAPConsoleClient.IWSReference.Station GetStation(string city, string station_name) {
             return base.Channel.GetStation(city, station_name);
         }
         
-        public System.Threading.Tasks.Task<SOAPConsoleClient.ServiceReference1.Station> GetStationAsync(string city, string station_name) {
+        public System.Threading.Tasks.Task<SOAPConsoleClient.IWSReference.Station> GetStationAsync(string city, string station_name) {
             return base.Channel.GetStationAsync(city, station_name);
         }
     }

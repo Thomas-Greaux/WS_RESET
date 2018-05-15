@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a88e3636-9864-4c53-8650-08bb51186e79" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="02b74966-77cc-402a-b37a-72f20cdbe2b1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="732df7c5-e861-47af-9254-7fba85309e00" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="42c93203-081c-4e99-ab7d-1451c55f8643" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="8617d74e-f852-4858-97fd-e7560ab63343" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
-    <MetadataFile FileName="IntermediaryWS.xsd" MetadataType="Schema" ID="e82536f1-0c0f-4fd7-be08-ed5a5c755e4c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ddca42b8-6319-4c1c-b250-2da063d21006" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f6b8306c-bad7-40b8-903c-71a6664597ad" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="1dea3a8f-52f1-43b4-9915-f55ac7430b22" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+    <MetadataFile FileName="IntermediaryWS.xsd" MetadataType="Schema" ID="056b8e9f-9082-47e4-845f-ea34afc0958d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
