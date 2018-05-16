@@ -33,11 +33,14 @@ namespace IntermediaryWS
         public Station GetStation(string city, string station_name)
         {
             List<Station> stations = GetStations(city);
-            foreach (Station station in stations)
+            if(stations != null)
             {
-                if (station.Name.ToUpper().Contains(station_name.ToUpper()))
+                foreach (Station station in stations)
                 {
-                    return station;
+                    if (station.Name.ToUpper().Contains(station_name.ToUpper()))
+                    {
+                        return station;
+                    }
                 }
             }
             return new Station();
