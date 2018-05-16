@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace IntermediaryWS
 {
@@ -12,13 +13,13 @@ namespace IntermediaryWS
     public interface IIWS
     {
         [OperationContract]
-        List<City> GetCitiesName();
+        Task<List<City>> GetCitiesName();
 
         [OperationContract]
-        List<Station> GetStations(string city);
+        Task<List<Station>> GetStations(string city);
 
         [OperationContract]
-        Station GetStation(string city, string station_name);
+        Task<Station> GetStation(string city, string station_name);
     }
 
     // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.

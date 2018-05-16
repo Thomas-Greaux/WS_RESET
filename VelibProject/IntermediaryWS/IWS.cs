@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using Newtonsoft.Json;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace IntermediaryWS
 {
@@ -16,23 +17,23 @@ namespace IntermediaryWS
         const string apiKey = "7efd1067c82b1c9593faa098b1f7f5ea02cd272e";
         static string url;
 
-        public List<City> GetCitiesName()
+        public async Task<List<City>> GetCitiesName()
         {
             url = "https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + apiKey;
-            string result = MyWebRequest();
+            string result = await MyWebRequest();
             return JsonConvert.DeserializeObject<List<City>>(result);
         }
 
-        public List<Station> GetStations(string city)
+        public async Task<List<Station>> GetStations(string city)
         {
             url = "https://api.jcdecaux.com/vls/v1/stations?contract=" + city + "&apiKey=" + apiKey;
-            string result = MyWebRequest();
+            string result = await MyWebRequest();
             return JsonConvert.DeserializeObject<List<Station>>(result);
         }
 
-        public Station GetStation(string city, string station_name)
+        public async Task<Station> GetStation(string city, string station_name)
         {
-            List<Station> stations = GetStations(city);
+            List<Station> stations = await GetStations(city);
             if(stations != null)
             {
                 foreach (Station station in stations)
@@ -46,7 +47,7 @@ namespace IntermediaryWS
             return new Station();
         }
 
-        static string MyWebRequest()
+        static async Task<string> MyWebRequest()
         {
             try
             {
