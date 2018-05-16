@@ -16,34 +16,60 @@ namespace IntermediaryWS
     {
         const string apiKey = "7efd1067c82b1c9593faa098b1f7f5ea02cd272e";
         static string url;
+        const int refreshRate = 15;
+
+        List<City> citiesCache = new List<City>();
+        DateTime lastCityCacheUpdate = DateTime.Now.Subtract(new TimeSpan(0, refreshRate+1, 0));
+
+        Dictionary<string, List<Station>> stationsPerCityCache = new Dictionary<string, List<Station>>();
+        Dictionary<string, DateTime> lastStationCacheUpdate = new Dictionary<string, DateTime>();
 
         public async Task<List<City>> GetCitiesName()
         {
-            url = "https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + apiKey;
-            string result = await MyWebRequest();
-            return JsonConvert.DeserializeObject<List<City>>(result);
+            if(DateTime.Now.Subtract(lastCityCacheUpdate).Minutes > refreshRate)
+            {
+                UpdateCityCache();
+            }
+            return citiesCache;
         }
 
         public async Task<List<Station>> GetStations(string city)
         {
-            url = "https://api.jcdecaux.com/vls/v1/stations?contract=" + city + "&apiKey=" + apiKey;
-            string result = await MyWebRequest();
-            return JsonConvert.DeserializeObject<List<Station>>(result);
+            DateTime lastUpdated;
+            if(lastStationCacheUpdate.TryGetValue(city, out lastUpdated))
+            {
+                if (DateTime.Now.Subtract(lastUpdated).Minutes < refreshRate)
+                {
+                    UpdateStationCache(city);
+                }
+            }
+            else
+            {
+                UpdateStationCache(city);
+            }
+            return stationsPerCityCache[city];
         }
 
         public async Task<Station> GetStation(string city, string station_name)
         {
-            List<Station> stations = await GetStations(city);
-            if(stations != null)
+            DateTime now = DateTime.Now;
+            if (DateTime.Now.Subtract(lastCityCacheUpdate).Minutes > refreshRate)
             {
-                foreach (Station station in stations)
+                UpdateCityCache();
+            }
+            if (DateTime.Now.Subtract(lastStationCacheUpdate[city]).Minutes < refreshRate)
+            {
+                UpdateStationCache(city);
+            }
+
+            foreach (Station station in stationsPerCityCache[city])
+            {
+                if (station.Name.ToUpper().Contains(station_name.ToUpper()))
                 {
-                    if (station.Name.ToUpper().Contains(station_name.ToUpper()))
-                    {
-                        return station;
-                    }
+                    return station;
                 }
             }
+
             return new Station();
         }
 
@@ -71,6 +97,26 @@ namespace IntermediaryWS
                 Console.WriteLine("Error:  " + ex.Message);
                 return "";
             }
+        }
+
+        public async void UpdateCityCache()
+        {
+            Console.Write("Updating city cache... ");
+            url = "https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + apiKey;
+            string result = await MyWebRequest();
+            citiesCache = JsonConvert.DeserializeObject<List<City>>(result);
+            lastCityCacheUpdate = DateTime.Now;
+            Console.WriteLine("done!");
+        }
+
+        public async void UpdateStationCache(string city)
+        {
+            Console.Write("Updating station cache... ");
+            url = "https://api.jcdecaux.com/vls/v1/stations?contract=" + city + "&apiKey=" + apiKey;
+            string result = await MyWebRequest();
+            stationsPerCityCache[city] =  JsonConvert.DeserializeObject<List<Station>>(result);
+            lastStationCacheUpdate[city] = DateTime.Now;
+            Console.WriteLine("done!");
         }
     }
 }
