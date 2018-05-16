@@ -25,11 +25,6 @@ namespace GUIClient
             }
         }
 
-        private void ClientForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Send_request(object sender, EventArgs e)
         {
             Station res = client.GetStation(cityComboBox.Text, stationComboBox.Text);
