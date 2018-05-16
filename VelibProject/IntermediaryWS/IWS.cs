@@ -18,15 +18,15 @@ namespace IntermediaryWS
         static string url;
         const int refreshRate = 15;
 
-        List<City> citiesCache = new List<City>();
-        DateTime lastCityCacheUpdate = DateTime.Now.Subtract(new TimeSpan(0, refreshRate+1, 0));
+        static List<City> citiesCache = new List<City>();
+        static DateTime lastCityCacheUpdate = DateTime.Now.Subtract(new TimeSpan(0, refreshRate+1, 0));
 
-        Dictionary<string, List<Station>> stationsPerCityCache = new Dictionary<string, List<Station>>();
-        Dictionary<string, DateTime> lastStationCacheUpdate = new Dictionary<string, DateTime>();
+        static Dictionary<string, List<Station>> stationsPerCityCache = new Dictionary<string, List<Station>>();
+        static Dictionary<string, DateTime> lastStationCacheUpdate = new Dictionary<string, DateTime>();
 
         public async Task<List<City>> GetCitiesName()
         {
-            if(DateTime.Now.Subtract(lastCityCacheUpdate).Minutes > refreshRate)
+            if (DateTime.Now.Subtract(lastCityCacheUpdate).Minutes > refreshRate)
             {
                 UpdateCityCache();
             }
@@ -38,13 +38,14 @@ namespace IntermediaryWS
             DateTime lastUpdated;
             if(lastStationCacheUpdate.TryGetValue(city, out lastUpdated))
             {
-                if (DateTime.Now.Subtract(lastUpdated).Minutes < refreshRate)
+                if (DateTime.Now.Subtract(lastUpdated).Minutes > refreshRate)
                 {
                     UpdateStationCache(city);
                 }
             }
             else
             {
+                lastStationCacheUpdate[city] = DateTime.Now;
                 UpdateStationCache(city);
             }
             return stationsPerCityCache[city];
@@ -57,8 +58,18 @@ namespace IntermediaryWS
             {
                 UpdateCityCache();
             }
-            if (DateTime.Now.Subtract(lastStationCacheUpdate[city]).Minutes < refreshRate)
+
+            DateTime lastUpdated;
+            if (lastStationCacheUpdate.TryGetValue(city, out lastUpdated))
             {
+                if (DateTime.Now.Subtract(lastUpdated).Minutes > refreshRate)
+                {
+                    UpdateStationCache(city);
+                }
+            }
+            else
+            {
+                lastStationCacheUpdate[city] = DateTime.Now;
                 UpdateStationCache(city);
             }
 
@@ -105,7 +116,10 @@ namespace IntermediaryWS
             url = "https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + apiKey;
             string result = await MyWebRequest();
             citiesCache = JsonConvert.DeserializeObject<List<City>>(result);
-            lastCityCacheUpdate = DateTime.Now;
+
+            TimeSpan to_add = DateTime.Now.Subtract(lastCityCacheUpdate);
+            lastCityCacheUpdate += to_add;
+
             Console.WriteLine("done!");
         }
 
@@ -115,7 +129,10 @@ namespace IntermediaryWS
             url = "https://api.jcdecaux.com/vls/v1/stations?contract=" + city + "&apiKey=" + apiKey;
             string result = await MyWebRequest();
             stationsPerCityCache[city] =  JsonConvert.DeserializeObject<List<Station>>(result);
-            lastStationCacheUpdate[city] = DateTime.Now;
+
+            TimeSpan to_add = DateTime.Now.Subtract(lastStationCacheUpdate[city]);
+            lastStationCacheUpdate[city] += to_add;
+
             Console.WriteLine("done!");
         }
     }

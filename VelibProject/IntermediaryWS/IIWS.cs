@@ -50,6 +50,11 @@ namespace IntermediaryWS
     {
         string name = "City_Name";
 
+        public City(string v)
+        {
+            this.name = v;
+        }
+
         [DataMember]
         public string Name
         {
