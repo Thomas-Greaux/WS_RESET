@@ -18,10 +18,26 @@ namespace EventsConsoleClient
             IWSForEventsReference.IWSForEventsClient objClient = new IWSForEventsReference.IWSForEventsClient(iCntxt);
 
             objClient.SubscribeStationInfo();
-
-            objClient.GetStationForEvent("Toulouse", "00189");
-
-            Console.ReadKey();
+            string user_input;
+            do
+            {
+                user_input = Console.ReadLine();
+                string[] splited = user_input.Split(' ');
+                string city = splited[0];
+                string station;
+                if(splited.Length >= 2)
+                {
+                    station = splited[1];
+                    if (splited.Length >= 2)
+                    {
+                        for (int i = 2; i < splited.Length; i++)
+                        {
+                            station += (" " + splited[i]);
+                        }
+                    }
+                    objClient.GetStationForEvent(city, station);
+                }
+            } while (user_input != "end");
         }
     }
 }

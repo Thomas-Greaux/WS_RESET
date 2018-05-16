@@ -12,7 +12,12 @@ namespace EventsConsoleClient
     {
         public void StationInfo(string city, string station_name, Station res_station)
         {
-            Console.WriteLine("Bikes at {0} : {1} \n\t(retrieved from event)", station_name, res_station.Available_bikes);
+            if(res_station.Available_bikes == -1)
+            {
+                Console.WriteLine("Station {0} in city {1} doesn't exists...", station_name, city);
+                return;
+            }
+            Console.WriteLine("Bikes at {0} : {1}", res_station.Name, res_station.Available_bikes);
         }
     }
 }
