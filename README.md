@@ -5,3 +5,4 @@ The Velib Project is in the directory 'VelibProject', the others directories are
 
 Extensions:
 *Async
+*GUI client
