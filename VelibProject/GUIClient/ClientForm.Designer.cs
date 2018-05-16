@@ -30,13 +30,15 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.bikes_nb_text_box = new System.Windows.Forms.TextBox();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
+            this.stationComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(137, 123);
+            this.button1.Location = new System.Drawing.Point(64, 142);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 39);
+            this.button1.Size = new System.Drawing.Size(185, 39);
             this.button1.TabIndex = 0;
             this.button1.Text = "Send request";
             this.button1.UseVisualStyleBackColor = true;
@@ -49,15 +51,34 @@
             this.bikes_nb_text_box.Size = new System.Drawing.Size(185, 22);
             this.bikes_nb_text_box.TabIndex = 1;
             // 
+            // cityComboBox
+            // 
+            this.cityComboBox.FormattingEnabled = true;
+            this.cityComboBox.Location = new System.Drawing.Point(64, 24);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(185, 24);
+            this.cityComboBox.TabIndex = 2;
+            this.cityComboBox.SelectedIndexChanged += new System.EventHandler(this.cityComboBox_SelectedIndexChanged);
+            // 
+            // stationComboBox
+            // 
+            this.stationComboBox.FormattingEnabled = true;
+            this.stationComboBox.Location = new System.Drawing.Point(64, 86);
+            this.stationComboBox.Name = "stationComboBox";
+            this.stationComboBox.Size = new System.Drawing.Size(185, 24);
+            this.stationComboBox.TabIndex = 3;
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Controls.Add(this.stationComboBox);
+            this.Controls.Add(this.cityComboBox);
             this.Controls.Add(this.bikes_nb_text_box);
             this.Controls.Add(this.button1);
             this.Name = "ClientForm";
-            this.Text = "Form1";
+            this.Text = "Client Form";
             this.Load += new System.EventHandler(this.ClientForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -68,6 +89,8 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox bikes_nb_text_box;
+        private System.Windows.Forms.ComboBox cityComboBox;
+        private System.Windows.Forms.ComboBox stationComboBox;
     }
 }
 
