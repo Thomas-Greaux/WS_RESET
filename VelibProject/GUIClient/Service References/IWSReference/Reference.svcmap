@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8bdb923f-81c2-49af-9ba0-5ec1c8ab603d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3242d414-7e8d-4d3e-aa91-23588e60c4f0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c34002f6-4227-419e-90d6-c04cad4fdedf" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d755e87c-a6ae-4b2a-ad4d-f70559196682" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+    <MetadataFile FileName="IntermediaryWS.xsd" MetadataType="Schema" ID="19759a6d-2950-4281-9ca3-ff9793671e08" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/IntermediaryWS/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
